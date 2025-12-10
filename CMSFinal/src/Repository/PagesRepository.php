@@ -1,7 +1,5 @@
 <?php 
-
 namespace App\Repository;
-
 use PDO;
 use App\Model\PageModel;
 
