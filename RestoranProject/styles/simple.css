@@ -1,0 +1,258 @@
+/* THEME: SOFT PAPER (Ніжний папір) */
+
+:root {
+  /* Шрифти: Чисті та сучасні */
+  --font-body: "Segoe UI", "Roboto", "Helvetica Neue", sans-serif;
+  --font-head: "Georgia", "Times New Roman", serif; /* Заголовки із зарубками для елегантності */
+  
+  /* Палітра: М'яка та пастельна */
+  --bg: #faf9f6;          /* Теплий білий (колір яєчної шкаралупи) */
+  --card-bg: #ffffff;     /* Чистий білий для блоків */
+  --text: #595959;        /* М'який сірий текст (читати легше, ніж чорний) */
+  --text-head: #2c3e50;   /* Темніший для заголовків */
+  
+  /* Акценти */
+  --accent: #8da9c4;      /* Ніжний сіро-блакитний */
+  --accent-light: #eef4f8;/* Дуже світлий блакитний для фону */
+  --border: #eaeaea;      /* Ледь помітні рамки */
+  
+  --radius: 12px;         /* Сильне заокруглення кутів */
+  --shadow: 0 4px 20px rgba(0,0,0,0.03); /* Дуже легка тінь */
+}
+
+/* Скидання */
+*, *::before, *::after {
+  box-sizing: border-box;
+}
+
+html {
+  font-family: var(--font-body);
+  scroll-behavior: smooth;
+  font-size: 16px;
+}
+
+body {
+  background-color: var(--bg);
+  color: var(--text);
+  line-height: 1.7; /* Більший інтервал між рядками для легкості */
+  margin: 0;
+  
+  /* Центруємо контент */
+  display: grid;
+  grid-template-columns: 1fr min(48rem, 90%) 1fr;
+  min-height: 100vh;
+}
+
+body > * {
+  grid-column: 2;
+}
+
+/* Header */
+header {
+  padding: 3rem 0;
+  text-align: center;
+  margin-bottom: 2rem;
+}
+
+header h1 {
+  font-family: var(--font-head);
+  color: var(--text-head);
+  font-weight: normal;
+  letter-spacing: 1px;
+  margin: 0;
+}
+
+header p {
+  color: #888;
+  font-style: italic;
+  margin-top: 0.5rem;
+}
+
+/* Typography */
+h1, h2, h3, h4 {
+  font-family: var(--font-head);
+  color: var(--text-head);
+  margin-top: 2.5rem;
+  margin-bottom: 1rem;
+  line-height: 1.3;
+}
+
+h1 { font-size: 2.5rem; }
+h2 { font-size: 2rem; }
+h3 { font-size: 1.5rem; }
+
+p {
+  margin-bottom: 1.5rem;
+}
+
+/* Посилання */
+a {
+  color: var(--text-head);
+  text-decoration: none;
+  border-bottom: 1px solid var(--accent);
+  transition: all 0.3s ease;
+}
+
+a:hover {
+  background-color: var(--accent-light);
+  border-bottom-color: transparent;
+  color: #000;
+  border-radius: 4px;
+}
+
+/* Навігація */
+header > nav {
+  margin-top: 1.5rem;
+  padding-top: 1rem;
+  border-top: 1px solid var(--border);
+}
+
+header > nav ul {
+  padding: 0;
+  list-style: none;
+  display: flex;
+  justify-content: center;
+  gap: 1.5rem;
+  flex-wrap: wrap;
+}
+
+header > nav a {
+  border: none;
+  font-size: 0.95rem;
+  color: var(--text);
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  font-size: 0.8rem;
+}
+
+/* Кнопки - м'які "пігулки" */
+button, 
+.button, 
+input[type="submit"] {
+  background-color: var(--accent);
+  color: white;
+  border: none;
+  padding: 0.8rem 1.5rem;
+  border-radius: 50px; /* Повністю круглі боки */
+  font-size: 1rem;
+  cursor: pointer;
+  transition: transform 0.2s, box-shadow 0.2s;
+  box-shadow: 0 4px 6px rgba(141, 169, 196, 0.3);
+}
+
+button:hover, 
+.button:hover,
+input[type="submit"]:hover {
+  transform: translateY(-2px); /* Легке підняття */
+  box-shadow: 0 6px 12px rgba(141, 169, 196, 0.4);
+  background-color: #7c9bb8;
+}
+
+/* Картки та контейнери (білі блоки на фоні) */
+article, section, aside, .notice, pre {
+  background-color: var(--card-bg);
+  border: 1px solid white; /* Прихована рамка */
+  border-radius: var(--radius);
+  padding: 2rem;
+  margin-bottom: 2rem;
+  box-shadow: var(--shadow); /* М'яка тінь створює об'єм */
+}
+
+/* Зображення */
+img {
+  max-width: 100%;
+  height: auto;
+  border-radius: var(--radius);
+  display: block;
+  margin: 1.5rem auto;
+}
+
+/* Форми */
+input, textarea, select {
+  width: 100%;
+  padding: 0.8rem;
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  background-color: #fff;
+  color: var(--text);
+  margin-bottom: 1rem;
+  font-family: inherit;
+  transition: border 0.3s;
+}
+
+input:focus, textarea:focus {
+  outline: none;
+  border-color: var(--accent);
+  box-shadow: 0 0 0 3px var(--accent-light);
+}
+
+/* Таблиці */
+table {
+  width: 100%;
+  border-collapse: collapse;
+  margin: 2rem 0;
+  background: var(--card-bg);
+  border-radius: var(--radius);
+  overflow: hidden; /* Щоб кути таблиці були круглими */
+  box-shadow: var(--shadow);
+}
+
+th, td {
+  padding: 1rem;
+  text-align: left;
+  border-bottom: 1px solid var(--border);
+}
+
+th {
+  background-color: var(--accent-light);
+  color: var(--text-head);
+  font-weight: 600;
+}
+
+/* Code */
+pre {
+  background-color: #f4f6f8; /* Дуже світлий сірий */
+  color: #444;
+  font-size: 0.9rem;
+  overflow-x: auto;
+}
+
+code {
+  font-family: "Consolas", monospace;
+  background-color: #f4f6f8;
+  padding: 0.2rem 0.4rem;
+  border-radius: 4px;
+  color: #d63384; /* М'який рожевий для коду */
+}
+
+pre code {
+  color: inherit;
+  background: none;
+  padding: 0;
+}
+
+/* Footer */
+footer {
+  margin-top: 4rem;
+  padding: 2rem 0;
+  text-align: center;
+  color: #999;
+  font-size: 0.9rem;
+  border-top: 1px solid var(--border);
+}
+
+hr {
+  border: 0;
+  height: 1px;
+  background: var(--border);
+  margin: 3rem 0;
+}
+
+blockquote {
+  border-left: 4px solid var(--accent);
+  margin: 1.5rem 0;
+  padding-left: 1.5rem;
+  color: #777;
+  font-style: italic;
+  background: transparent;
+}
