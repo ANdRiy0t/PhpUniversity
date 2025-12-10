@@ -4,7 +4,6 @@ declare(strict_types=1);
 function fetch_names_by_initial(string $char, int $page = 1, int $perPage = 15): array {
     global $pdo;
 
-    // Making sure that page is never 0 or even negative
     $page = max(1, $page);
 
     $stmt = $pdo->prepare('SELECT DISTINCT `name` FROM `names` WHERE `name` LIKE :expr ORDER BY `name` ASC LIMIT :limit OFFSET :offset');
@@ -38,7 +37,6 @@ function fetch_name_entries(string $name): array {
     $stmt->execute();
     return $stmt->fetchAll(PDO::FETCH_ASSOC);
 }
-
 
 function gen_names_overview(): array {
     global $pdo;
