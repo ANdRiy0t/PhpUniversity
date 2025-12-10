@@ -1,14 +1,12 @@
 <?php
 
 namespace App\Weather;
-
 class RemoteWeatherFetcher implements WeatherFetcherInterface {
 
     public function fetch(string $city): ?WeatherInfo {
         $fp = @fsockopen("ssl://downloads.codingcoursestv.eu", 443, $errno, $errstr, 30);
         if (!$fp) {
             return null;
-            // echo "$errstr ($errno)<br />\n";
         } else {
             $out = "GET /056%20-%20php/weather/weather.php?" . http_build_query(['city' => $city]) . " HTTP/1.1\r\n";
             $out .= "Host: downloads.codingcoursestv.eu\r\n";
